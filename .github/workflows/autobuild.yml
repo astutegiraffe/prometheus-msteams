@@ -49,8 +49,8 @@ jobs:
         context: .
         platforms: linux/amd64,linux/arm64
         push: true
-        cache-from: type=registry,ref=${{ github.repository_owner }}/prometheus-msteams:latest
-        cache-to: type=inline
+        cache-from: type=gha,ref=${{ github.repository_owner }}/prometheus-msteams:latest
+        cache-to: type=gha,mode=max
         tags: |
           ghcr.io/${{ github.repository_owner }}/prometheus-msteams:latest
           ghcr.io/${{ github.repository_owner }}/prometheus-msteams:${{ steps.tagstep.outputs.tag }}
